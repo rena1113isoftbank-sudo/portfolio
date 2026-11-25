@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex, nofollow"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WORKS | My Creative Portfolio</title>
+<link href="../css/works.css" rel="stylesheet"/>
+<style id="v18-works-final">
+/* V18 WORKS FINAL — top-like pale cards, horizontal carousel, dense balanced scrapbook */
+.works-shell{overflow:visible!important;width:min(1180px,calc(100% - 10vw))!important;margin:0 auto!important;padding-bottom:70px!important}
+.works-header{position:relative!important;width:100%!important;margin:18px auto 48px!important;background:transparent!important;overflow:visible!important;aspect-ratio:2/1!important;display:flex!important;align-items:center!important;justify-content:center!important}
+.works-header-art{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;max-height:none!important}
+/* each section is one pale scrapbook paper rectangle, like TOP */
+.works-section{position:relative!important;overflow:visible!important;isolation:isolate!important;margin:0 0 58px!important;padding:38px 42px 42px!important;background:rgba(255,248,242,.94)!important;border:1px solid #efc8cf!important;box-shadow:0 12px 28px rgba(139,79,98,.10)!important}
+.works-section>.decor:not(.v18decor){display:none!important}
+.works-section>.v18decor{display:block!important;position:absolute!important;z-index:12!important;max-width:none!important;pointer-events:none!important;user-select:none!important;filter:drop-shadow(0 6px 7px rgba(104,55,74,.18));}
+.works-section>.v18decor.sprinkle{filter:drop-shadow(0 3px 4px rgba(104,55,74,.13));}
+.works-section>.section-heading,.works-section>.section-body{position:relative!important;z-index:10!important}
+.works-section h2,.works-section p,.works-section .tools-block,.works-section .carousel-stage,.works-section .carousel-button,.works-section .carousel-dots,.works-section .single-work-image{position:relative;z-index:16!important}
+.section-heading{padding-bottom:16px!important;margin-bottom:22px!important;border-bottom:2px dotted #e9a2b6!important}
+/* remove the extra nested white text-box look; the whole section itself is the card */
+.about-site-section .section-body,.project-copy.paper-card{background:transparent!important;border:0!important;box-shadow:none!important;padding-left:8px!important;padding-right:8px!important}
+/* image/card zones stay clean but subtle */
+.carousel.paper-card,.single-image-card.paper-card{background:rgba(255,255,255,.48)!important;border:1px solid rgba(229,170,187,.55)!important;box-shadow:none!important}
+/* Carousel: LEFT — image — RIGHT. Never vertical. */
+.carousel{position:relative!important;display:block!important;min-height:440px!important;padding:26px 64px 54px!important;overflow:visible!important}
+.carousel-stage{height:360px!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:hidden!important}
+.carousel-image{display:none!important;width:auto!important;height:auto!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;margin:auto!important}
+.carousel-image.is-active{display:block!important}
+.carousel-button{position:absolute!important;top:50%!important;transform:translateY(-50%)!important;width:48px!important;height:48px!important;border-radius:50%!important;z-index:20!important}
+.carousel-button.prev{left:10px!important;right:auto!important}
+.carousel-button.next{right:10px!important;left:auto!important}
+.carousel-dots{position:absolute!important;left:50%!important;right:auto!important;bottom:18px!important;top:auto!important;transform:translateX(-50%)!important;display:flex!important;gap:8px!important;z-index:20!important}
+/* single works never escape their box */
+.single-image-card{display:flex!important;align-items:center!important;justify-content:center!important;overflow:hidden!important;min-height:360px!important}
+.single-work-image{display:block!important;width:auto!important;height:auto!important;max-width:100%!important;max-height:440px!important;object-fit:contain!important;margin:auto!important}
+@media(max-width:900px){
+ .works-shell{width:calc(100% - 28px)!important}
+ .works-header{aspect-ratio:auto!important;margin-bottom:36px!important}
+ .works-header-art{height:auto!important}
+ .works-section{padding:30px 22px!important}
+ .works-section>.v18decor{transform:scale(.74)!important}
+ .carousel{min-height:340px!important;padding:22px 52px 50px!important}
+ .carousel-stage{height:275px!important}
+}
+</style><style id="v19-random-scrap-overrides">
+/* V19 — deliberately irregular scrapbook placement. */
+.top-section, .works-section{overflow:visible!important;}
+.top-section>.v18decor,.works-section>.v18decor{position:absolute!important;pointer-events:none!important;max-width:none!important;}
+.top-section>.v18decor.cluster-piece,.works-section>.v18decor.cluster-piece{filter:drop-shadow(0 7px 8px rgba(106,55,76,.20))!important;}
+.top-section>.v18decor.sprinkle,.works-section>.v18decor.sprinkle{filter:drop-shadow(0 3px 5px rgba(106,55,76,.14))!important;}
+/* Content stays readable while decorations may overlap the card edges. */
+.about-content,.skills-career-grid,.theme-content,.section-heading,.section-body,.paper-card,.works-footer{position:relative;z-index:20;}
+/* Let decorative pieces sit over the paper/card edge, but below actual content. */
+.top-section>.v18decor,.works-section>.v18decor{z-index:14!important;}
+.top-section>.v18decor:nth-of-type(3n),.works-section>.v18decor:nth-of-type(3n){z-index:16!important;}
+.top-section>.v18decor:nth-of-type(5n),.works-section>.v18decor:nth-of-type(5n){z-index:15!important;}
+</style>
+<style id="v27-clean-works-layout">
+/* =========================================================
+   CLEAN LAYOUT LAYER
+   Decoration positions from V18/V19 stay intact.
+   Only header / card spacing / dollhouse / polaroid / carousel
+   are centralized here so old rules no longer fight each other.
+   ========================================================= */
+
+/* ---------- shared page width ---------- */
+.works-shell{
+  width:min(1320px,calc(100% - 5vw))!important;
+  max-width:1320px!important;
+  margin:0 auto!important;
+  overflow:visible!important;
+}
+.works-section{
+  width:100%!important;
+  box-sizing:border-box!important;
+}
+
+/* ---------- WORKS header ----------
+   Important fix: no 2:1 aspect-ratio box.
+   The scrapbook image is 3:2, so the old 2:1 wrapper was forcing
+   object-fit:contain to visually shrink the image.
+   Header now uses the image's natural aspect ratio, full card width,
+   and NO cropping. */
+.works-header{
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  min-height:0!important;
+  aspect-ratio:auto!important;
+  display:block!important;
+  margin:8px 0 0!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  transform:none!important;
+}
+.works-header::before,
+.works-header::after{
+  display:none!important;
+}
+.works-header-art{
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  margin:0!important;
+  padding:0!important;
+  transform:none!important;
+}
+.works-header + .about-site-section{
+  margin-top:0!important;
+}
+
+/* ---------- preserve the approved random decoration look ---------- */
+.works-section>.v18decor.cluster-piece:nth-of-type(4n+1){scale:1.48;translate:-20px 12px}
+.works-section>.v18decor.cluster-piece:nth-of-type(4n+2){scale:.76;translate:22px -14px}
+.works-section>.v18decor.cluster-piece:nth-of-type(4n+3){scale:1.22;translate:-9px 17px}
+.works-section>.v18decor.cluster-piece:nth-of-type(4n){scale:.90;translate:25px 6px}
+.works-section>.v18decor.sprinkle:nth-of-type(5n+1){scale:.58;translate:15px -9px}
+.works-section>.v18decor.sprinkle:nth-of-type(5n+2){scale:1.34;translate:-13px 14px}
+.works-section>.v18decor.sprinkle:nth-of-type(5n+3){scale:.80;translate:22px 5px}
+.works-section>.v18decor.sprinkle:nth-of-type(5n+4){scale:1.12;translate:-20px -7px}
+.works-section>.v18decor.sprinkle:nth-of-type(5n){scale:.68;translate:8px 17px}
+.works-section>.v18decor.cluster-piece:nth-of-type(5n+1){scale:1.68!important}
+.works-section>.v18decor.cluster-piece:nth-of-type(5n+2){scale:.82!important}
+.works-section>.v18decor.sprinkle:nth-of-type(4n+1){scale:.56!important}
+.works-section>.v18decor.sprinkle:nth-of-type(4n+2){scale:1.34!important}
+
+/* ---------- content always readable ---------- */
+.works-section .section-heading,
+.works-section .section-body,
+.works-section h2,
+.works-section p,
+.works-section .tools-block,
+.works-section .carousel-stage,
+.works-section .carousel-button,
+.works-section .carousel-dots,
+.works-section .single-work-image{
+  position:relative!important;
+  z-index:40!important;
+}
+
+/* ---------- 00 SITE DESIGN dollhouse ----------
+   Inside the white card's right-side breathing room; not on text. */
+.about-site-section > img[src*="03-45040869-e705-48c4-9478-01c25c0e3029"]{
+  left:auto!important;
+  right:3.5%!important;
+  top:150px!important;
+  width:255px!important;
+  max-width:25%!important;
+  height:auto!important;
+  transform:rotate(2deg)!important;
+  translate:none!important;
+  z-index:24!important;
+}
+.about-site-section .section-body{
+  max-width:66%!important;
+  padding-right:12px!important;
+}
+
+/* ---------- 01 PIN BADGE polaroid ----------
+   Frame + photo share the exact same wrapper.
+   Decoration 09 black-window measured from the source PNG:
+   x=101..924 / 1024, y=336..1167 / 1536. */
+.pinback-section > .v25-polaroid-cat{
+  position:absolute!important;
+  overflow:visible!important;
+  z-index:25!important;
+  transform:rotate(11deg)!important;
+  transform-origin:center!important;
+  translate:none!important;
+}
+.v25-polaroid-frame{
+  display:block!important;
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  z-index:2!important;
+}
+.pinback-section > .v25-polaroid-cat::after{
+  content:""!important;
+  position:absolute!important;
+  left:9.86%!important;
+  top:21.88%!important;
+  width:80.47%!important;
+  height:54.17%!important;
+  z-index:3!important;
+  background-image:url("../imgs/polaroid/black-cat.png")!important;
+  background-size:cover!important;
+  background-position:center 30%!important;
+  background-repeat:no-repeat!important;
+  pointer-events:none!important;
+}
+
+/* ---------- carousel ---------- */
+.carousel-stage{overflow:hidden!important}
+.carousel-image{
+  max-width:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+}
+.carousel-button.prev{
+  left:10px!important;
+  right:auto!important;
+  top:50%!important;
+}
+.carousel-button.next{
+  right:10px!important;
+  left:auto!important;
+  top:50%!important;
+}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .works-shell{width:calc(100% - 24px)!important}
+  .works-header{margin-top:0!important}
+  .works-section>.v18decor{scale:.70!important}
+  .about-site-section > img[src*="03-45040869-e705-48c4-9478-01c25c0e3029"]{
+    right:2%!important;
+    top:205px!important;
+    width:24%!important;
+  }
+  .about-site-section .section-body{max-width:68%!important}
+}
+</style>
+<style id="v29-carousel-structure-fix">
+/* V29 — carousel structure fix.
+   The approved WORKS design/decorations stay untouched.
+   Arrows are now children of .carousel-viewport, the same box that holds the artwork. */
+
+.carousel{
+  position:relative!important;
+  display:block!important;
+  overflow:visible!important;
+}
+
+/* This is the ONLY positioning reference for arrows. */
+.carousel-viewport{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  min-height:360px!important;
+  overflow:visible!important;
+}
+
+.carousel-stage{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  height:360px!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  margin:0!important;
+}
+
+.carousel-image{
+  display:none!important;
+  width:auto!important;
+  height:auto!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  margin:auto!important;
+}
+
+.carousel-image.is-active{
+  display:block!important;
+}
+
+/* Force both buttons to the same horizontal center line. */
+.carousel-viewport > .carousel-button{
+  position:absolute!important;
+  top:50%!important;
+  bottom:auto!important;
+  margin:0!important;
+  padding:0!important;
+  width:48px!important;
+  height:48px!important;
+  min-width:48px!important;
+  min-height:48px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  transform:translateY(-50%)!important;
+  z-index:100!important;
+  line-height:1!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+
+.carousel-viewport > .carousel-button.prev{
+  left:12px!important;
+  right:auto!important;
+}
+
+.carousel-viewport > .carousel-button.next{
+  right:12px!important;
+  left:auto!important;
+}
+
+/* dots stay under the artwork */
+.carousel-dots{
+  position:relative!important;
+  left:auto!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:auto!important;
+  transform:none!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+  margin:14px auto 0!important;
+  z-index:90!important;
+}
+
+/* larger centered click-to-zoom view */
+.lightbox{
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100vh!important;
+  display:none!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:4vh 4vw!important;
+  box-sizing:border-box!important;
+  z-index:9999!important;
+}
+
+.lightbox.is-open,
+.lightbox[aria-hidden="false"]{
+  display:flex!important;
+}
+
+.lightbox-image{
+  display:block!important;
+  width:auto!important;
+  height:auto!important;
+  max-width:90vw!important;
+  max-height:88vh!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  margin:auto!important;
+}
+
+.lightbox-close{
+  position:fixed!important;
+  top:20px!important;
+  right:24px!important;
+  z-index:10001!important;
+}
+
+@media(max-width:900px){
+  .carousel-viewport,
+  .carousel-stage{
+    height:280px!important;
+    min-height:280px!important;
+  }
+  .carousel-viewport > .carousel-button{
+    width:42px!important;
+    height:42px!important;
+    min-width:42px!important;
+    min-height:42px!important;
+  }
+  .lightbox-image{
+    max-width:94vw!important;
+    max-height:86vh!important;
+  }
+}
+</style><style id="works-header-final">
+.works-header{aspect-ratio:1054/610!important;overflow:hidden!important;}
+.works-header-art{width:100%!important;height:100%!important;object-fit:cover!important;}
+.works-header-nav{position:absolute;inset:0;}
+.header-nav-hotspot{position:absolute;top:2%;height:9%;}
+.nav-top{left:22%;width:12%;}.nav-about{left:35%;width:14%;}.nav-theme{left:50%;width:13%;}.nav-works{left:64%;width:12%;}
+</style></head>
+<body class="works-page">
+<main class="works-shell">
+<header class="works-header"><img alt="WORKS scrapbook header" class="works-header-art" src="../imgs/works/works-header-scrapbook.png"/><nav aria-label="WORKSヘッダーナビゲーション" class="works-header-nav"><a aria-label="TOP" class="header-nav-hotspot nav-top" href="index.html"></a><a aria-label="ABOUT ME" class="header-nav-hotspot nav-about" href="index.html#about"></a><a aria-label="THEME" class="header-nav-hotspot nav-theme" href="index.html#theme"></a><a aria-label="WORKS" class="header-nav-hotspot nav-works" href="#"></a></nav></header>
+<section class="works-section about-site-section"><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/17-06ecb3a9-1162-45e1-8979-77ac26936cd6.png" style="left:-92px;top:185px;width:52px;transform:rotate(12deg);z-index:21"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/24-4bd57c78-36f7-4ed1-b57c-94be57df4ff8.png" style="left:-126px;top:120px;width:78px;transform:rotate(-11deg);z-index:19"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="right:-82px;top:170px;width:24px;z-index:21"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/06-5589d773-d24d-4206-991e-9f60a54ed185.png" style="right:-122px;top:120px;width:52px;transform:rotate(15deg);z-index:20"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/34-b4662d89-5f7b-4939-b2af-a4daa5293205.png" style="right:-88px;top:558px;width:123px;transform:rotate(-17deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/04-4c029727-d09a-434a-92c5-f874bd93f9fd.png" style="left:-12px;top:520px;width:84px;transform:rotate(9deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/01-0a782dc5-e277-47eb-a351-bf6db87755ac.png" style="right:-12px;top:268px;width:88px;transform:rotate(15deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/06-5589d773-d24d-4206-991e-9f60a54ed185.png" style="right:42px;top:475px;width:26px;transform:rotate(12deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:26px;top:310px;width:18px;transform:rotate(10deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/24-4bd57c78-36f7-4ed1-b57c-94be57df4ff8.png" style="right:48px;top:322px;width:43px;transform:rotate(-14deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/17-06ecb3a9-1162-45e1-8979-77ac26936cd6.png" style="left:10px;top:230px;width:46px;transform:rotate(13deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/14-da60183a-7dfc-4fa4-9b95-bfa771bb2b8d.png" style="right:56px;top:98px;width:31px;transform:rotate(13deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:78px;top:83px;width:18px;transform:rotate(7deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="right:-18px;top:480px;width:24px;transform:rotate(-7deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/39-fc69a1f8-42df-4029-a354-6583fc5e229d.png" style="right:-34px;top:441px;width:90px;transform:rotate(-5deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/03-45040869-e705-48c4-9478-01c25c0e3029.png" style="left:-70px;top:366px;width:132px;transform:rotate(-20deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/27-7f70d36a-3fc8-4e02-beb5-f8df86b827cc.png" style="right:-76px;top:385px;width:58px;transform:rotate(9deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/14-da60183a-7dfc-4fa4-9b95-bfa771bb2b8d.png" style="left:-46px;top:247px;width:48px;transform:rotate(5deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/24-4bd57c78-36f7-4ed1-b57c-94be57df4ff8.png" style="right:-70px;top:245px;width:67px;transform:rotate(7deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/02-279c462e-b13b-448a-8015-486e9a96a89a.png" style="left:-88px;top:193px;width:84px;transform:rotate(-13deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/06-5589d773-d24d-4206-991e-9f60a54ed185.png" style="right:-26px;top:119px;width:50px;transform:rotate(-9deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:-62px;top:104px;width:24px;transform:rotate(-5deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/17-06ecb3a9-1162-45e1-8979-77ac26936cd6.png" style="right:-88px;top:31px;width:90px;transform:rotate(-8deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/05-4e8dc18c-5acd-4d10-a210-cc28b8bb948e.png" style="left:-76px;top:18px;width:104px;transform:rotate(-17deg);z-index:13"/><img alt="" aria-hidden="true" class="decor workaccent s0 a1" src="../imgs/decorations-clean/06-5589d773-d24d-4206-991e-9f60a54ed185.png"/><img alt="" aria-hidden="true" class="decor workaccent s0 a2" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png"/><img alt="" aria-hidden="true" class="decor workaccent s0 a3" src="../imgs/decorations-clean/09-8dc8486d-a380-4c26-964d-2742d1e516d2.png"/><img alt="" aria-hidden="true" class="decor workdecor s0 d1" src="../imgs/decorations-clean/22-26cff25c-13f5-44b3-9c49-8a81a1fe32c5.png"/><img alt="" aria-hidden="true" class="decor workdecor s0 d2" src="../imgs/decorations-clean/23-4b7d1e68-74b4-467a-a697-122c5577e527.png"/><img alt="" aria-hidden="true" class="decor workdecor s0 d3" src="../imgs/decorations-clean/24-4bd57c78-36f7-4ed1-b57c-94be57df4ff8.png"/><img alt="" aria-hidden="true" class="decor workdecor s0 d4" src="../imgs/decorations-clean/25-50991063-9a25-4f22-9e8a-aa23e5e433e1.png"/>
+<div class="section-heading"><div class="section-number">00</div><h2>SITE DESIGN</h2></div>
+<div class="section-body text-card">
+<p>このポートフォリオのデザインは、世界中で親しまれているおもちゃ「ポーリーポケット」を参考に制作しました。</p>
+<p>ポーリーポケットは1989年にイギリスで誕生した、化粧品のコンパクトをモチーフにした小さなおもちゃです。ケースを開くと、2〜3cmほどのドールと小さな部屋が広がり、どこへでも持ち運びながら、いつでも自分だけのときめきが詰まった秘密の部屋を開くことができます。</p>
+<p>このポートフォリオも、ページを開いた瞬間にポーリーポケットを開いたときのような、秘密の世界をのぞくわくわく感と、かわいさを感じてもらいたいという思いを込めてデザインしました。</p>
+</div>
+</section>
+<section class="works-section project-section pinback-section"><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:-76px;top:235px;width:23px;z-index:21"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/18-11ff59b2-a803-420b-b4c0-1eba1f25a5a3.png" style="left:-126px;top:180px;width:58px;transform:rotate(-13deg);z-index:20"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/14-da60183a-7dfc-4fa4-9b95-bfa771bb2b8d.png" style="right:-72px;top:155px;width:45px;transform:rotate(13deg);z-index:21"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/37-d78e2b9d-4a7a-4cf9-b238-5d0c3de7873a.png" style="right:-132px;top:90px;width:82px;transform:rotate(-12deg);z-index:19"/><div aria-hidden="true" class="decor v25-polaroid-cat" style="left:-54px;top:526px;width:104px;transform:rotate(11deg);z-index:14">
+<img alt="" class="v25-polaroid-frame" src="../imgs/decorations-clean/09-8dc8486d-a380-4c26-964d-2742d1e516d2.png"/>
+</div><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/07-635dee89-bd87-45a7-97c7-acf3e58e6870.png" style="right:-62px;top:469px;width:82px;transform:rotate(-8deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/06-5589d773-d24d-4206-991e-9f60a54ed185.png" style="right:10px;top:466px;width:38px;transform:rotate(13deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:68px;top:302px;width:18px;transform:rotate(-7deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/24-4bd57c78-36f7-4ed1-b57c-94be57df4ff8.png" style="right:18px;top:320px;width:50px;transform:rotate(-12deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/17-06ecb3a9-1162-45e1-8979-77ac26936cd6.png" style="left:92px;top:231px;width:41px;transform:rotate(6deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/14-da60183a-7dfc-4fa4-9b95-bfa771bb2b8d.png" style="right:26px;top:68px;width:26px;transform:rotate(6deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:42px;top:48px;width:26px;transform:rotate(10deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/27-7f70d36a-3fc8-4e02-beb5-f8df86b827cc.png" style="right:-88px;top:476px;width:56px;transform:rotate(-13deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/37-d78e2b9d-4a7a-4cf9-b238-5d0c3de7873a.png" style="left:-12px;top:434px;width:62px;transform:rotate(-17deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/22-26cff25c-13f5-44b3-9c49-8a81a1fe32c5.png" style="right:-34px;top:337px;width:88px;transform:rotate(11deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/14-da60183a-7dfc-4fa4-9b95-bfa771bb2b8d.png" style="left:-26px;top:285px;width:49px;transform:rotate(12deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/31-9ba82216-90cc-4037-aa68-79045870d2ef.png" style="right:-54px;top:273px;width:58px;transform:rotate(-11deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/29-8c0ffc05-abca-4839-813f-ba3235f30dbd.png" style="left:-46px;top:238px;width:62px;transform:rotate(-5deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/16-04c7ed06-4e56-4cd2-90ff-4faf6da1d2fa.png" style="right:-12px;top:251px;width:96px;transform:rotate(18deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/10-a7f9b99d-5ba8-4d68-b5d7-33b9daa234ec.png" style="left:-18px;top:114px;width:40px;transform:rotate(-14deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="right:-70px;top:134px;width:27px;transform:rotate(-3deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/18-11ff59b2-a803-420b-b4c0-1eba1f25a5a3.png" style="right:-46px;top:77px;width:73px;transform:rotate(-20deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/28-88299d10-3c58-462b-a3ca-f213e168c36e.png" style="left:-34px;top:57px;width:113px;transform:rotate(7deg);z-index:14"/><img alt="" aria-hidden="true" class="decor workaccent s1 a1" src="../imgs/decorations-clean/10-a7f9b99d-5ba8-4d68-b5d7-33b9daa234ec.png"/><img alt="" aria-hidden="true" class="decor workaccent s1 a2" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png"/><img alt="" aria-hidden="true" class="decor workaccent s1 a3" src="../imgs/decorations-clean/12-b7e523a3-c9ab-49e2-80d4-56cb494a18a8.png"/><img alt="" aria-hidden="true" class="decor workdecor s1 d1" src="../imgs/decorations-clean/26-54806e92-8dcb-4904-b1f3-9dca7f571ccb.png"/><img alt="" aria-hidden="true" class="decor workdecor s1 d2" src="../imgs/decorations-clean/27-7f70d36a-3fc8-4e02-beb5-f8df86b827cc.png"/><img alt="" aria-hidden="true" class="decor workdecor s1 d3" src="../imgs/decorations-clean/28-88299d10-3c58-462b-a3ca-f213e168c36e.png"/><img alt="" aria-hidden="true" class="decor workdecor s1 d4" src="../imgs/decorations-clean/29-8c0ffc05-abca-4839-813f-ba3235f30dbd.png"/>
+<div class="section-heading"><div class="section-number">01</div><h2>PIN BADGE BUTTON</h2></div>
+<div class="section-body project-grid">
+<div class="project-copy paper-card">
+<div class="tools-block"><span>使用ツール</span><div class="tool-icons"><img alt="Illustrator" src="../imgs/icons-svg/illustrator.svg"/><img alt="Photoshop" src="../imgs/icons-svg/photoshop.svg"/><img alt="生成AI" src="../imgs/icons-svg/generative-ai.svg"/></div></div>
+<p>昔から缶バッジが大好きで、「小さなときめき」をテーマに、一からデザインした自分だけの缶バッジを制作しました。</p>
+<p>猫をメインモチーフに、それぞれ異なるテイストのデザインに仕上げています。全体的にパステルカラーを基調とし、誰でも身につけやすく、かつ注目を集めるような作品になることを意識しました。</p>
+<p>一部の作品を実際に缶バッジにし、ロゼットを制作しました。</p>
+<p class="ai-note">※この作品で使用したイラストは生成AIで作成しています。</p>
+</div>
+<div class="carousel paper-card" data-carousel="">
+<div class="carousel-viewport"><button aria-label="前の画像" class="carousel-button prev" type="button">‹</button><div class="carousel-stage">
+<img alt="ロック猫" class="carousel-image is-active zoomable" src="../imgs/works/pinback-button/rock-cat.svg"/>
+<img alt="3CAT" class="carousel-image zoomable" src="../imgs/works/pinback-button/3cat.svg"/>
+<img alt="IT'S ME!" class="carousel-image zoomable" src="../imgs/works/pinback-button/its-me.png"/>
+</div><button aria-label="次の画像" class="carousel-button next" type="button">›</button></div><div class="carousel-dots"></div>
+</div>
+</div>
+</section>
+<section class="works-section project-section poster-section"><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="right:-78px;top:245px;width:24px;z-index:21"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/17-06ecb3a9-1162-45e1-8979-77ac26936cd6.png" style="right:-126px;top:165px;width:60px;transform:rotate(14deg);z-index:20"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/10-a7f9b99d-5ba8-4d68-b5d7-33b9daa234ec.png" style="left:-80px;top:198px;width:40px;transform:rotate(-9deg);z-index:21"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/31-9ba82216-90cc-4037-aa68-79045870d2ef.png" style="left:-135px;top:120px;width:86px;transform:rotate(9deg);z-index:19"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/15-f6ac9c3e-aa84-4b1e-8882-2607ceb32215.png" style="left:-76px;top:507px;width:93px;transform:rotate(15deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/11-b29b156d-c7c0-479b-b39f-25b456dea7e0.png" style="right:-88px;top:522px;width:105px;transform:rotate(9deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/06-5589d773-d24d-4206-991e-9f60a54ed185.png" style="right:42px;top:358px;width:38px;transform:rotate(10deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:6px;top:268px;width:21px;transform:rotate(-9deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/24-4bd57c78-36f7-4ed1-b57c-94be57df4ff8.png" style="right:18px;top:326px;width:37px;transform:rotate(-9deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/17-06ecb3a9-1162-45e1-8979-77ac26936cd6.png" style="left:56px;top:188px;width:44px;transform:rotate(7deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/14-da60183a-7dfc-4fa4-9b95-bfa771bb2b8d.png" style="right:68px;top:83px;width:33px;transform:rotate(7deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:10px;top:58px;width:23px;transform:rotate(-7deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:-34px;top:567px;width:26px;transform:rotate(-14deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/14-da60183a-7dfc-4fa4-9b95-bfa771bb2b8d.png" style="right:-18px;top:491px;width:40px;transform:rotate(-14deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/39-fc69a1f8-42df-4029-a354-6583fc5e229d.png" style="left:-54px;top:401px;width:63px;transform:rotate(7deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/32-9eb839b8-09b3-4db0-b939-73d67c87cfe0.png" style="right:-34px;top:336px;width:106px;transform:rotate(7deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/06-5589d773-d24d-4206-991e-9f60a54ed185.png" style="left:-70px;top:246px;width:38px;transform:rotate(13deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/17-06ecb3a9-1162-45e1-8979-77ac26936cd6.png" style="right:-54px;top:213px;width:73px;transform:rotate(19deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/24-4bd57c78-36f7-4ed1-b57c-94be57df4ff8.png" style="left:-26px;top:236px;width:86px;transform:rotate(-8deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/30-9b8c30b8-ed73-415b-996e-f5c62d6a70de.png" style="right:-12px;top:142px;width:71px;transform:rotate(-8deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:-88px;top:117px;width:18px;transform:rotate(-12deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/12-b7e523a3-c9ab-49e2-80d4-56cb494a18a8.png" style="right:-26px;top:93px;width:52px;transform:rotate(-12deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/19-188e64a1-08bc-44e2-a64f-18aece901cab.png" style="left:-62px;top:68px;width:90px;transform:rotate(18deg);z-index:15"/><img alt="" aria-hidden="true" class="decor workaccent s2 a1" src="../imgs/decorations-clean/14-da60183a-7dfc-4fa4-9b95-bfa771bb2b8d.png"/><img alt="" aria-hidden="true" class="decor workaccent s2 a2" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png"/><img alt="" aria-hidden="true" class="decor workaccent s2 a3" src="../imgs/decorations-clean/07-635dee89-bd87-45a7-97c7-acf3e58e6870.png"/><img alt="" aria-hidden="true" class="decor workdecor s2 d1" src="../imgs/decorations-clean/30-9b8c30b8-ed73-415b-996e-f5c62d6a70de.png"/><img alt="" aria-hidden="true" class="decor workdecor s2 d2" src="../imgs/decorations-clean/31-9ba82216-90cc-4037-aa68-79045870d2ef.png"/><img alt="" aria-hidden="true" class="decor workdecor s2 d3" src="../imgs/decorations-clean/32-9eb839b8-09b3-4db0-b939-73d67c87cfe0.png"/><img alt="" aria-hidden="true" class="decor workdecor s2 d4" src="../imgs/decorations-clean/33-a2eb2e26-baa6-4959-b6c1-612413eb05f2.png"/>
+<div class="section-heading"><div class="section-number">02</div><h2>POSTER</h2></div>
+<div class="section-body project-grid">
+<div class="project-copy paper-card">
+<div class="tools-block"><span>使用ツール</span><div class="tool-icons"><img alt="Illustrator" src="../imgs/icons-svg/illustrator.svg"/></div></div>
+<p>缶バッジで使用したロックな猫をモチーフに、猫のロックバンドポスターを制作しました。猫の口からツアー名が吐き出されているようなインパクトのあるレイアウトにしています。ツアーの日付は世界各国で制定されている「猫の日」を採用。ちなみに8月8日は「世界猫の日」です。</p>
+<p class="ai-note">※この作品で使用したイラストは生成AIで作成しています。</p>
+</div>
+<div class="single-image-card paper-card"><img alt="猫のロックバンドポスター" class="single-work-image poster-image zoomable" src="../imgs/works/poster/poster.png"/></div>
+</div>
+</section>
+<section class="works-section project-section id-section"><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:-72px;top:290px;width:22px;z-index:21"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/18-11ff59b2-a803-420b-b4c0-1eba1f25a5a3.png" style="left:-124px;top:225px;width:56px;transform:rotate(11deg);z-index:20"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/06-5589d773-d24d-4206-991e-9f60a54ed185.png" style="right:-84px;top:188px;width:46px;transform:rotate(-12deg);z-index:21"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/39-fc69a1f8-42df-4029-a354-6583fc5e229d.png" style="right:-136px;top:110px;width:88px;transform:rotate(13deg);z-index:19"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/23-4b7d1e68-74b4-467a-a697-122c5577e527.png" style="left:-34px;top:537px;width:75px;transform:rotate(-11deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/20-22de4800-81df-4056-99d0-86f8f6599cc1.png" style="right:-46px;top:507px;width:100px;transform:rotate(11deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/06-5589d773-d24d-4206-991e-9f60a54ed185.png" style="right:92px;top:461px;width:25px;transform:rotate(-12deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:6px;top:322px;width:18px;transform:rotate(6deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/24-4bd57c78-36f7-4ed1-b57c-94be57df4ff8.png" style="right:78px;top:323px;width:54px;transform:rotate(-3deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/17-06ecb3a9-1162-45e1-8979-77ac26936cd6.png" style="left:26px;top:179px;width:33px;transform:rotate(10deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/14-da60183a-7dfc-4fa4-9b95-bfa771bb2b8d.png" style="right:6px;top:111px;width:38px;transform:rotate(10deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:92px;top:81px;width:24px;transform:rotate(-9deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="right:-26px;top:558px;width:20px;transform:rotate(-5deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/14-da60183a-7dfc-4fa4-9b95-bfa771bb2b8d.png" style="left:-76px;top:451px;width:51px;transform:rotate(12deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/24-4bd57c78-36f7-4ed1-b57c-94be57df4ff8.png" style="right:-18px;top:404px;width:91px;transform:rotate(-11deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/33-a2eb2e26-baa6-4959-b6c1-612413eb05f2.png" style="left:-54px;top:394px;width:104px;transform:rotate(-5deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/17-06ecb3a9-1162-45e1-8979-77ac26936cd6.png" style="right:-62px;top:332px;width:60px;transform:rotate(18deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/37-d78e2b9d-4a7a-4cf9-b238-5d0c3de7873a.png" style="left:-70px;top:313px;width:85px;transform:rotate(-20deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/31-9ba82216-90cc-4037-aa68-79045870d2ef.png" style="right:-76px;top:209px;width:71px;transform:rotate(9deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/29-8c0ffc05-abca-4839-813f-ba3235f30dbd.png" style="left:-46px;top:103px;width:75px;transform:rotate(7deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="right:-54px;top:133px;width:19px;transform:rotate(-14deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/08-7295719c-51af-4cd4-804f-9106ee2e8e1f.png" style="right:-70px;top:45px;width:40px;transform:rotate(5deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/21-234eac59-cf5e-4dcf-af4f-76982b7e7bcc.png" style="left:-18px;top:18px;width:84px;transform:rotate(19deg);z-index:16"/><img alt="" aria-hidden="true" class="decor workaccent s3 a1" src="../imgs/decorations-clean/08-7295719c-51af-4cd4-804f-9106ee2e8e1f.png"/><img alt="" aria-hidden="true" class="decor workaccent s3 a2" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png"/><img alt="" aria-hidden="true" class="decor workaccent s3 a3" src="../imgs/decorations-clean/09-8dc8486d-a380-4c26-964d-2742d1e516d2.png"/><img alt="" aria-hidden="true" class="decor workdecor s3 d1" src="../imgs/decorations-clean/34-b4662d89-5f7b-4939-b2af-a4daa5293205.png"/><img alt="" aria-hidden="true" class="decor workdecor s3 d2" src="../imgs/decorations-clean/35-d09d5f65-7cb3-4b3f-9bcf-544d3f4c5af5.png"/><img alt="" aria-hidden="true" class="decor workdecor s3 d3" src="../imgs/decorations-clean/36-d685f469-3440-4c7e-b388-412e9d65c791.png"/><img alt="" aria-hidden="true" class="decor workdecor s3 d4" src="../imgs/decorations-clean/37-d78e2b9d-4a7a-4cf9-b238-5d0c3de7873a.png"/>
+<div class="section-heading"><div class="section-number">03</div><h2>ID PHOTO</h2></div>
+<div class="section-body project-grid">
+<div class="project-copy paper-card">
+<div class="tools-block"><span>使用ツール</span><div class="tool-icons"><img alt="Photoshop" src="../imgs/icons-svg/photoshop.svg"/><img alt="生成AI" src="../imgs/icons-svg/generative-ai.svg"/></div></div>
+<p>以前「なめ猫」が好きだったので、免許証の証明写真をモチーフに作品を作ってみました。1カット目は“撮るぞ”と意気込んでいるものの、2カット目からは気が緩み、あくびをしてしまうまでを4カットに。猫の自由さを表現した作品になりました。</p>
+<p class="ai-note">※この作品で使用したイラストは生成AIで作成しています。</p>
+</div>
+<div class="single-image-card paper-card wide-card"><img alt="猫の証明写真作品" class="single-work-image id-photo-image zoomable" src="../imgs/works/id-photo/id-photo.png"/></div>
+</div>
+</section>
+<section class="works-section project-section tshirt-section"><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="right:-76px;top:278px;width:24px;z-index:21"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/17-06ecb3a9-1162-45e1-8979-77ac26936cd6.png" style="right:-128px;top:210px;width:62px;transform:rotate(-15deg);z-index:20"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/08-7295719c-51af-4cd4-804f-9106ee2e8e1f.png" style="left:-78px;top:175px;width:44px;transform:rotate(15deg);z-index:21"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/24-4bd57c78-36f7-4ed1-b57c-94be57df4ff8.png" style="left:-132px;top:105px;width:84px;transform:rotate(-9deg);z-index:19"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/26-54806e92-8dcb-4904-b1f3-9dca7f571ccb.png" style="right:-26px;top:595px;width:89px;transform:rotate(15deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/25-50991063-9a25-4f22-9e8a-aa23e5e433e1.png" style="left:-18px;top:560px;width:112px;transform:rotate(7deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/06-5589d773-d24d-4206-991e-9f60a54ed185.png" style="right:92px;top:410px;width:37px;transform:rotate(-9deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:18px;top:345px;width:18px;transform:rotate(-5deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/24-4bd57c78-36f7-4ed1-b57c-94be57df4ff8.png" style="right:42px;top:293px;width:48px;transform:rotate(-5deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/17-06ecb3a9-1162-45e1-8979-77ac26936cd6.png" style="left:68px;top:230px;width:32px;transform:rotate(-7deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/14-da60183a-7dfc-4fa4-9b95-bfa771bb2b8d.png" style="right:48px;top:108px;width:35px;transform:rotate(-7deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:56px;top:83px;width:18px;transform:rotate(-3deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:-62px;top:555px;width:18px;transform:rotate(-9deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/14-da60183a-7dfc-4fa4-9b95-bfa771bb2b8d.png" style="right:-46px;top:466px;width:41px;transform:rotate(5deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/39-fc69a1f8-42df-4029-a354-6583fc5e229d.png" style="left:-34px;top:401px;width:84px;transform:rotate(19deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/38-dd76478c-e6c1-416c-822c-765d3cb2fe32.png" style="right:-18px;top:347px;width:75px;transform:rotate(19deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/10-a7f9b99d-5ba8-4d68-b5d7-33b9daa234ec.png" style="left:-54px;top:282px;width:54px;transform:rotate(7deg);z-index:14"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/17-06ecb3a9-1162-45e1-8979-77ac26936cd6.png" style="right:-34px;top:255px;width:58px;transform:rotate(11deg);z-index:16"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/24-4bd57c78-36f7-4ed1-b57c-94be57df4ff8.png" style="left:-12px;top:228px;width:89px;transform:rotate(-17deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/36-d685f469-3440-4c7e-b388-412e9d65c791.png" style="right:-76px;top:129px;width:120px;transform:rotate(-17deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor sprinkle" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png" style="left:-26px;top:104px;width:26px;transform:rotate(12deg);z-index:15"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/27-7f70d36a-3fc8-4e02-beb5-f8df86b827cc.png" style="right:-12px;top:41px;width:60px;transform:rotate(18deg);z-index:13"/><img alt="" aria-hidden="true" class="decor v18decor cluster-piece" src="../imgs/decorations-clean/35-d09d5f65-7cb3-4b3f-9bcf-544d3f4c5af5.png" style="left:-88px;top:18px;width:102px;transform:rotate(9deg);z-index:13"/><img alt="" aria-hidden="true" class="decor workaccent s4 a1" src="../imgs/decorations-clean/06-5589d773-d24d-4206-991e-9f60a54ed185.png"/><img alt="" aria-hidden="true" class="decor workaccent s4 a2" src="../imgs/decorations-clean/10-a7f9b99d-5ba8-4d68-b5d7-33b9daa234ec.png"/><img alt="" aria-hidden="true" class="decor workaccent s4 a3" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png"/><img alt="" aria-hidden="true" class="decor workaccent s4 a4" src="../imgs/decorations-clean/13-cb113a39-6ede-4d15-931e-f3a91eb71cd5.png"/><img alt="" aria-hidden="true" class="decor workdecor s4 d1" src="../imgs/decorations-clean/38-dd76478c-e6c1-416c-822c-765d3cb2fe32.png"/><img alt="" aria-hidden="true" class="decor workdecor s4 d2" src="../imgs/decorations-clean/39-fc69a1f8-42df-4029-a354-6583fc5e229d.png"/>
+<div class="section-heading"><div class="section-number">04</div><h2>T-SHIRT</h2></div>
+<div class="section-body project-grid">
+<div class="project-copy paper-card">
+<div class="tools-block"><span>使用ツール</span><div class="tool-icons"><img alt="Photoshop" src="../imgs/icons-svg/photoshop.svg"/><img alt="Illustrator" src="../imgs/icons-svg/illustrator.svg"/></div></div>
+<p>海外の著作権フリー素材サイトを見ていると、この猫の写真を発見。説明には「うちの猫が床で寝転がっている」と書かれており、その姿がかわいく、この写真を使ってTシャツをデザインしてみることにしました。</p>
+<p>猫はよく床に伸びていて、私はよく「猫が落ちてる」と思っていたので、「Watch out! There’s a cat down there!（気をつけろ！ 猫が落ちてるぞ！）」とキャッチフレーズを入れました。</p>
+</div>
+<div class="carousel paper-card" data-carousel="">
+<div class="carousel-viewport"><button aria-label="前の画像" class="carousel-button prev" type="button">‹</button><div class="carousel-stage">
+<img alt="Tシャツデザイン" class="carousel-image is-active zoomable" src="../imgs/works/tshirt/tshirt-cat.svg"/>
+<img alt="Tシャツレイアウトイメージ" class="carousel-image zoomable" src="../imgs/works/tshirt/tshirt-layout.svg"/>
+</div><button aria-label="次の画像" class="carousel-button next" type="button">›</button></div><div class="carousel-dots"></div>
+</div>
+</div>
+</section>
+<footer class="works-footer">
+<div class="back-top-wrap"><a class="back-top-button" href="index.html">BACK TO TOP　→</a></div>
+</footer>
+</main>
+<div aria-hidden="true" class="lightbox" id="lightbox"><button aria-label="閉じる" class="lightbox-close" type="button">×</button><img alt="拡大表示" class="lightbox-image" src=""/></div>
+<script src="../js/works.js"></script>
+</body>
+</html>
